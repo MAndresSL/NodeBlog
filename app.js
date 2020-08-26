@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const blogRoutes = require('./routes/blogRoutes');
+const PORT = process.env.PORT || 3000;
 // Crea la instancia de una app de express
 const app = express();
 
@@ -21,7 +22,7 @@ mongoose
 	.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then((result) => {
 		console.log("connected to db");
-		app.listen(3000);
+		app.listen(PORT);
 	})
 	.catch((err) => console.log(err));
 
